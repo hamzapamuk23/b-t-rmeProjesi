@@ -1,5 +1,3 @@
-import json
-from os import link
 import requests
 from bs4 import BeautifulSoup
 data=[]
