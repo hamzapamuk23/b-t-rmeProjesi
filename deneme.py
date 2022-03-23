@@ -6,17 +6,15 @@ headers={
     }
 def getProductLink():
     urlId=1
-    for i in range(1):
-        url1="https://www.trendyol.com/erkek-t-shirt-x-g2-c73?pi=1"+str(urlId)
+    for i in range(10):
+        url1="https://www.trendyol.com/erkek-t-shirt-x-g2-c73?pi="+str(urlId)
         page=requests.get(url1, headers=headers)
         htmlPage= BeautifulSoup(page.content,'html.parser')
         products=htmlPage.find_all("div", class_="p-card-chldrn-cntnr")
         for product in products:
-            links=product.find("a")
-            link="https://www.trendyol.com"+links.get("href")
+            link="https://www.trendyol.com"+product.find("a").get("href")
             getProductDetail(link)
         urlId+=1
-    print(data)   
     print("data")
 def getProductDetail(link):
     productData={"productUrl":"", "productName":"", "productPrice":"", "productImageUrl":{}, "productDetail":{}}
