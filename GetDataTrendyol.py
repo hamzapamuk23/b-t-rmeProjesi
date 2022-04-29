@@ -1,14 +1,10 @@
-<<<<<<< HEAD
 import json
-=======
->>>>>>> 5c34856b1f0e9d1041379eb60a78abe8e0e158c3
 import requests
 from bs4 import BeautifulSoup
 data=[]
 headers={
         "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36"
     }
-<<<<<<< HEAD
 def getToolBars():
     response=json.loads(requests.get("http://localhost:8080/toolbar").text)
     return response["_embedded"]["toolbars"]
@@ -61,20 +57,6 @@ def getProductLink():
     print(data)   
     print("data")
     
-=======
-def getProductLink():
-    urlId=1
-    for i in range(10):
-        url1="https://www.trendyol.com/erkek-t-shirt-x-g2-c73?pi="+str(urlId)
-        page=requests.get(url1, headers=headers)
-        htmlPage= BeautifulSoup(page.content,'html.parser')
-        products=htmlPage.find_all("div", class_="p-card-chldrn-cntnr")
-        for product in products:
-            link="https://www.trendyol.com"+product.find("a").get("href")
-            getProductDetail(link)
-        urlId+=1
-    print("data")
->>>>>>> 5c34856b1f0e9d1041379eb60a78abe8e0e158c3
 def getProductDetail(link):
     productData={"productUrl":"", "productName":"", "productPrice":"", "productImageUrl":{}, "productDetail":{}}
     page=requests.get(link, headers=headers)
@@ -90,11 +72,8 @@ def getProductDetail(link):
         productData["productDetail"][productDetail.find("span").getText()]=(productDetail.find("b").getText())
     data.append(productData)
 getProductLink()
-<<<<<<< HEAD
 # getToolBars()
 # getCategoryLink()
 # data={"name":"asdasd"}
 # x=requests.post("http://localhost:8080/toolbar",json=data)
 # print(json.loads(x.text))
-=======
->>>>>>> 5c34856b1f0e9d1041379eb60a78abe8e0e158c3
