@@ -17,7 +17,7 @@ def getDataN11():
             break
         else:
             for product in products:
-                productData={"id1":"","platformName":"N11", "name":"", "price":"","url":"", "imageUrl":"", "detail":{},"category":{"id":"867ea039-81b4-4684-b845-3080b334603b"}}
+                productData={"platformId":"","platformName":"N11", "name":"", "price":"","url":"", "imageUrl":"", "detail":{},"category":{"id":"867ea039-81b4-4684-b845-3080b334603b"}}
                 productData["id1"]=product.find("a").get("data-id")
                 productData["url"]=product.find("a").get("href")
                 productData["price"]=product.find("ins").getText().split("TL")[0].replace(".","").replace(",",".")

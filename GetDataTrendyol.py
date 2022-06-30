@@ -40,7 +40,7 @@ def getDataTrendyol():
         else:
             products=htmlPage.find_all("div", class_="p-card-wrppr")
             for product in products:
-                productData={"id1":"", "name":"", "platformName":"Trendyol", "price":"","url":"", "imageUrl":"", "detail":{},"category":{"id":"867ea039-81b4-4684-b845-3080b334603b"}}
+                productData={"platformId":"", "name":"", "platformName":"Trendyol", "price":"","url":"", "imageUrl":"", "detail":{},"category":{"id":"867ea039-81b4-4684-b845-3080b334603b"}}
                 productData["id1"]=product.get("data-id")
                 productData["url"]="https://www.trendyol.com"+product.find("a").get("href")
                 productData["price"]=product.find("div", class_="prc-box-dscntd").getText().split("TL")[0].replace(".","").replace(",",".")
